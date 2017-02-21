@@ -43,9 +43,6 @@ public class Logica implements Observer {
 	}
 
 	public void click(PApplet app) {
-
-		// DatagramPacket packet = new DatagramPacket(data, data.length);
-		// String shi = data.toString();
 		if (app.mouseX > 0 && app.mouseX < 500 && app.mouseY > 0 && app.mouseY < 500) {
 			try {
 				String lolis = new String("up");
