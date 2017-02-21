@@ -27,6 +27,7 @@ public class Logica implements Observer {
 		// TODO Auto-generated method stub
 		DatagramPacket p = (DatagramPacket) arg1;
 		data = new String(p.getData(), 0, p.getLength());
+		System.out.println("DAtos: " + data);
 
 		if (data.equals("up")) {
 			y ++;
@@ -47,7 +48,6 @@ public class Logica implements Observer {
 			try {
 				String lolis = new String("up");
 				com.sendMessage(lolis);
-				System.out.println(lolis);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

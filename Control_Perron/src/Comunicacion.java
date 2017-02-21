@@ -32,7 +32,7 @@ public class Comunicacion extends Observable implements Runnable{
 		byte [] data = mensaje.getBytes();
 		DatagramPacket packet = new DatagramPacket(data, data.length, ia, Puerto);
 		multi.send(packet);
-		System.out.println("recibidito");
+		System.out.println("Enviados: " + packet);
 	}
 	
 	  public DatagramPacket receiveMessage() {
@@ -40,6 +40,7 @@ public class Comunicacion extends Observable implements Runnable{
 	        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 	        try {
 	            multi.receive(packet);
+	            System.out.println("REcibidos: " + packet);
 	            return packet;
 	        } catch (IOException e) {
 	            // TODO Auto-generated catch block
@@ -55,12 +56,12 @@ public class Comunicacion extends Observable implements Runnable{
 			if (multi != null) {
 				DatagramPacket packet = receiveMessage();
 				String message = new String(packet.getData(), 0, packet.getLength());
-				System.out.println("shi" + receiveMessage());
+				System.out.println("shi: " + receiveMessage());
 				if (packet != null) {
                     setChanged();
                     notifyObservers(message);
                     clearChanged();
-                    System.out.println(message);
+                    System.out.println("Mensaje: " + message);
 				}
 			}
 		}
