@@ -9,6 +9,7 @@ public class Logica implements Observer {
 	private int x, y;
 	private Comunicacion com;
 	private String data;
+	private boolean up = false, down = false, left = false, right = false;
 
 	public Logica() {
 		// TODO Auto-generated constructor stub
@@ -26,6 +27,19 @@ public class Logica implements Observer {
 		// TODO Auto-generated method stub
 		DatagramPacket p = (DatagramPacket) arg1;
 		data = new String(p.getData(), 0, p.getLength());
+
+		if (data.equals("up")) {
+			y ++;
+		}
+//		if (data.contains("down")) {
+//			down = true;
+//		}
+//		if (data.contains("right")) {
+//			right = true;
+//		}
+//		if (data.contains("left")) {
+//			left = true;
+//		}
 	}
 
 	public void click(PApplet app) {
@@ -50,18 +64,18 @@ public class Logica implements Observer {
 		app.noStroke();
 		app.ellipse(x, y, 50, 50);
 
-		if (data.equals("up")) {
-			y--;
-		}
-		if (data.contains("down")) {
-			y++;
-		}
-		if (data.contains("right")) {
-			x++;
-		}
-		if (data.contains("left")) {
-			x--;
-		}
+//		if (up = true) {
+//			y--;
+//		}
+//		if (down = true) {
+//			y++;
+//		}
+//		if (right = true) {
+//			x++;
+//		}
+//		if (left = true) {
+//			x--;
+//		}
 	}
 
 }

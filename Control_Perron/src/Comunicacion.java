@@ -54,6 +54,7 @@ public class Comunicacion extends Observable implements Runnable{
 		while (true) {
 			if (multi != null) {
 				DatagramPacket packet = receiveMessage();
+				System.out.println(packet);
 				if (packet != null) {
 					String message = new String(packet.getData(), 0, packet.getLength());
                     setChanged();
